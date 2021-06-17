@@ -2,10 +2,10 @@ let container = document.getElementById("root");
 
 function el(tag, obj, data) {
   if (typeof tag !== "string") {
-    console.log("the first argument must be string!");
+    alert("the first argument must be string!");
   }
   if (typeof obj !== "object") {
-    console.log("the second argument must be an object!");
+    alert("the second argument must be an object!");
   }
 
   let element = document.createElement(tag);
@@ -32,6 +32,10 @@ function el(tag, obj, data) {
   return element;
 }
 
+container.appendChild(tree);
+
+/*Test case 3.*/
+
 const tree = el("form", { action: "/some_action" }, [
   el("label", { for: "name" }, "First name:"),
   el("br", {}, null),
@@ -57,11 +61,15 @@ const tree = el("form", { action: "/some_action" }, [
   el("input", { type: "submit", value: "Submit" }, null),
 ]);
 
+/*Test case 1.*/
+
 // const tree = el(
 //   "div",
 //   { class: "some_classname", id: "some_id" },
 //   el("span", {}, "hello")
 // );
+
+/*Test case 2.*/
 
 // const tree = el(
 //   "div",
@@ -72,7 +80,3 @@ const tree = el("form", { action: "/some_action" }, [
 //     el("li", {}, "Item 3"),
 //   ])
 // );
-
-container.appendChild(tree);
-
-
